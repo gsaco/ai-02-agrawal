@@ -30,6 +30,8 @@
 
 > ### [▶ Open the extended presentation — 26-frame PDF](extra/presentation-long.pdf)
 
+> ### [▶ Open the technical extensions — PDF](extensions/extensions.pdf)
+
 This repository studies Ajay Agrawal, Joshua Gans, and Avi Goldfarb's *The
 Economics of Bicycles for the Mind* (2025).
 
