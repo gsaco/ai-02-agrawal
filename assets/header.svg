@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">The Economics of Bicycles for the Mind</title>
+  <desc id="desc">Academic repository banner with an iterative improvement motif.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102A43"/>
+      <stop offset="1" stop-color="#184E77"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F6AD55"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="330" rx="24" fill="url(#background)"/>
+  <circle cx="1040" cy="58" r="118" fill="#3B82A0" opacity="0.13"/>
+  <circle cx="1115" cy="278" r="155" fill="#0B2239" opacity="0.34"/>
+  <circle cx="925" cy="170" r="86" fill="#E9F2F8" opacity="0.05" filter="url(#softGlow)"/>
+
+  <rect x="68" y="58" width="82" height="7" rx="3.5" fill="url(#accent)"/>
+  <text x="68" y="116" fill="#DDEAF3" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="2.5">AI &amp; ECONOMIC MODELING · REPOSITORY 2</text>
+  <text x="68" y="177" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">The Economics of Bicycles</text>
+  <text x="68" y="228" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">for the Mind</text>
+  <text x="70" y="275" fill="#BCD2E2" font-family="Arial, Helvetica, sans-serif" font-size="21">Implementation · Judgment · Tool Quality · Inequality</text>
+
+  <!-- Iterative task-improvement motif -->
+  <g transform="translate(878 78)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 125 C45 42, 164 22, 215 84" stroke="#DDEAF3" stroke-width="5" opacity="0.92"/>
+    <path d="M209 69 L218 86 L199 91" stroke="#D97706" stroke-width="6"/>
+    <path d="M216 116 C204 196, 86 218, 34 158" stroke="#DDEAF3" stroke-width="5" opacity="0.72"/>
+    <path d="M40 174 L30 156 L49 151" stroke="#D97706" stroke-width="6"/>
+    <circle cx="31" cy="140" r="20" fill="#102A43" stroke="#F6AD55" stroke-width="6"/>
+    <circle cx="220" cy="101" r="20" fill="#102A43" stroke="#F6AD55" stroke-width="6"/>
+    <circle cx="125" cy="124" r="45" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-width="4"/>
+    <path d="M108 125 L121 138 L145 107" stroke="#FFFFFF" stroke-width="7"/>
+  </g>
+</svg>

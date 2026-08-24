@@ -1,0 +1,309 @@
+% Compatibility shims for an older LaTeX kernel with a newer hyperref.
+\providecommand\IfDocumentMetadataT[1]{}
+\providecommand\IfDocumentMetadataTF[2]{#2}
+\documentclass[aspectratio=169,10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+
+% Palette sampled from the supplied design reference.
+\definecolor{Navy}{HTML}{0C2852}
+\definecolor{AccentRed}{HTML}{982A34}
+\definecolor{Graphite}{HTML}{333333}
+\definecolor{Muted}{HTML}{5F6368}
+\definecolor{RedTitleWash}{HTML}{F4E8EA}
+\definecolor{RedBodyWash}{HTML}{F9F5F5}
+\definecolor{BlueTitleWash}{HTML}{EBEEF1}
+\definecolor{BlueBodyWash}{HTML}{F5F6F8}
+\definecolor{Divider}{HTML}{D9DEE4}
+
+\usetheme{default}
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+\setbeamersize{text margin left=1.05cm,text margin right=1.05cm}
+
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=Graphite,bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=Navy}
+\setbeamercolor{structure}{fg=Navy}
+\setbeamercolor{alerted text}{fg=AccentRed}
+\setbeamercolor{red block title}{fg=AccentRed,bg=RedTitleWash}
+\setbeamercolor{red block body}{fg=Graphite,bg=RedBodyWash}
+\setbeamercolor{blue block title}{fg=Navy,bg=BlueTitleWash}
+\setbeamercolor{blue block body}{fg=Graphite,bg=BlueBodyWash}
+\setbeamercolor{accent line}{bg=AccentRed}
+\setbeamercolor{divider line}{bg=Divider}
+
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{normal text}{size=\normalsize}
+
+% Full-width title bar and short red underline, matching the reference deck.
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.61cm,dp=0.22cm,leftskip=0.40cm]{frametitle}%
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \hbox{%
+    \begin{beamercolorbox}[wd=1.05cm,ht=0.018cm,dp=0cm]{accent line}\end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\dimexpr\paperwidth-1.05cm\relax,ht=0.018cm,dp=0cm]{divider line}\end{beamercolorbox}%
+  }%
+}
+
+\setbeamertemplate{itemize item}{\color{Navy}\raise0.12ex\hbox{\scriptsize$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\color{AccentRed}\raise0.08ex\hbox{\tiny$\bullet$}}
+\setlength{\leftmargini}{1.05em}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\toolgain}{\Delta V}
+
+\newcommand{\redblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.11cm]{red block title}%
+    \usebeamerfont{block title}#1
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.13cm]{red block body}%
+    #2
+  \end{beamercolorbox}%
+}
+
+\newcommand{\blueblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.11cm]{blue block title}%
+    \usebeamerfont{block title}#1
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.13cm]{blue block body}%
+    #2
+  \end{beamercolorbox}%
+}
+
+% Denser flat panels for theorem-heavy frames.
+\newcommand{\compactredblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.08cm]{red block title}%
+    \usebeamerfont{block title}#1
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.09cm]{red block body}%
+    #2
+  \end{beamercolorbox}%
+}
+
+\newcommand{\compactblueblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.08cm]{blue block title}%
+    \usebeamerfont{block title}#1
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.09cm]{blue block body}%
+    #2
+  \end{beamercolorbox}%
+}
+
+\begin{document}
+
+% ---------- 1/4: title ----------
+\begin{frame}[plain]
+  \vspace*{2.23cm}
+  {\fontsize{16}{19}\selectfont\bfseries The Economics of Bicycles for the Mind\par}
+  \vspace{0.23cm}
+  {\fontsize{14}{17}\selectfont Cognitive tools, human judgment, and inequality\par}
+  \vspace{0.54cm}
+  {\color{AccentRed}\rule{\linewidth}{0.45pt}}
+
+  \vspace{0.67cm}
+  {\normalsize\bfseries Gabriel Saco\par}
+  \vspace{0.08cm}
+  {\normalsize August 24, 2026\par}
+  \vspace{0.29cm}
+  {\small Universidad del Pac\'ifico\par}
+  \vspace{0.30cm}
+  {\small\color{Muted}Agrawal, Gans \& Goldfarb (2025) \textperiodcentered\ NBER WP 34034\par}
+  \vspace{-0.22cm}
+  \href{https://github.com/gsaco/ai-02-agrawal}{%
+    \color{Navy}\ttfamily\small github.com/gsaco/ai-02-agrawal}
+\end{frame}
+
+% ---------- 2/4: question, mechanism, problem ----------
+\begin{frame}[t]{The paper and the agent's problem}
+  \vspace{0.68cm}
+
+  \redblock{Question and single mechanism}{%
+    \small
+    \textbf{Question.} When a cognitive tool makes implementation easier, how do
+    effort, productivity, returns to human abilities, and inequality change?
+
+    \vspace{0.10cm}
+    \textbf{Mechanism.} The tool is a \alert{substitute for implementation effort}
+    at the margin; payoff judgment $\alpha$ and opportunity judgment $\gamma(t)$
+    determine how much value the agent can obtain from it.
+  }
+
+  \vspace{0.42cm}
+
+  \blueblock{Agent's problem, conditional on an opportunity}{%
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.56\textwidth}
+        \small Choose effort $e_t$ to maximize expected improvement value net of cost:
+        \[
+        \boxed{e_t^*(\theta)\in\arg\max_{e_t\ge0}
+        \left\{p(se_t;\theta)\alpha\Delta-c(e_t;\theta)\right\}.}
+        \]
+        \vspace{-0.18cm}
+        {\footnotesize Interior FOC:
+        $p'(se_t^*;\theta)s\alpha\Delta=c'(e_t^*;\theta)$.}
+      \end{column}
+      \begin{column}{0.41\textwidth}
+        \footnotesize
+        \textbf{Choice and constraint:} $e_t\ge0$.\\[0.12cm]
+        \textbf{Technology:} $p\in[0,1]$ is increasing and weakly concave.\\[0.12cm]
+        \textbf{Cost:} $c$ is increasing and weakly convex.\\[0.12cm]
+        \textbf{Tool:} raises $p$ and/or lowers $c$, while lowering $p'/c'$ as
+        $\theta$ rises.
+      \end{column}
+    \end{columns}
+  }
+\end{frame}
+
+% ---------- 3/4: Propositions 1 and 2 ----------
+\begin{frame}[t]{Propositions 1--2: effort, value, and adoption}
+  \vspace{0.30cm}
+
+  \compactredblock{Proposition 1 \textperiodcentered\ More value with less effort}{%
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.57\textwidth}
+        \small As tool quality moves from $\theta=0$ to $\theta=1$,
+        \[
+        \begin{aligned}
+          e_t^*(1)&<e_t^*(0)\ \forall t,
+          &e_t^*(\theta)&=e^*(\theta)\ \forall t,\\[-0.08cm]
+          &&V_0(1)&>V_0(0).
+        \end{aligned}
+        \]
+      \end{column}
+      \begin{column}{0.40\textwidth}
+        \footnotesize
+        \textbf{Intuition.} The same per-opportunity problem is solved each period;
+        the tool lowers optimal effort while raising optimized task value.
+
+        \vspace{0.08cm}
+        {\color{Muted}Definition 1's direct effects and lower $p'/c'$ apply, with a
+        well-defined interior optimum.}
+      \end{column}
+    \end{columns}
+  }
+
+  \vspace{0.12cm}
+
+  \compactblueblock{Proposition 2 \textperiodcentered\ What drives adoption value?}{%
+    \footnotesize
+    \[
+    \Gamma=\sum_{t=0}^{\infty}\left(\prod_{i=0}^{t}\gamma(i)\right)\delta^t,
+    \qquad
+    \toolgain=\Gamma\,[M_1^*-M_0^*]>0.
+    \]
+    \vspace{-0.23cm}
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.48\textwidth}
+        \textbf{Opportunity judgment.} $\Gamma$ multiplies the entire gain.\\[0.10cm]
+        \textbf{Payoff judgment.}
+        \[
+        \frac{\partial\toolgain}{\partial\alpha}
+        =\Gamma\Delta\,[p(se^*(1);1)-p(se^*(0);0)].
+        \]
+        Complementarity requires realized success to be weakly higher with the tool.
+      \end{column}
+      \begin{column}{0.48\textwidth}
+        \textbf{Implementation skill.} Adoption value falls with $s$ under the
+        tool--skill substitutability condition $p_{s\theta}<0$.\\[0.10cm]
+        \textbf{Timing.} Earlier opportunities receive greater discounted weight.
+      \end{column}
+    \end{columns}
+  }
+\end{frame}
+
+% ---------- 4/4: Proposition 3 and variance audit ----------
+\begin{frame}[t]{Proposition 3: the variance result}
+  \setlength{\abovedisplayskip}{0.25em}
+  \setlength{\belowdisplayskip}{0.25em}
+  \vspace{0.20cm}
+
+  \compactblueblock{Specialized model and exact result}{%
+    \fontsize{6.5}{7.2}\selectfont
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.31\textwidth}
+        \textbf{Setup}\par
+        $p(se;\theta)=\sqrt{se+\theta}$, $c(e)=e$, $\theta\ge0$.\\[0.08cm]
+        $\gamma(0)=\gamma_0$, $\gamma(t)=\gamma$ for $t>0$; $\delta\gamma<1$.\\[0.08cm]
+        $\alpha,\gamma_0,\gamma,s$ independent, positive support;
+        $\mu_i>3\sigma_i$.\\[0.08cm]
+        \textbf{Interior range:}
+        \[
+        e^*(\theta)=\frac{\alpha^2\Delta^2s}{4}-\frac{\theta}{s}>0.
+        \]
+      \end{column}
+      \begin{column}{0.31\textwidth}
+        \textbf{Value}\par
+        \[
+        \Gamma=\frac{\gamma_0}{1-\delta\gamma},
+        \]
+        \[
+        V(\theta)=\Gamma\!\left(\frac{\alpha^2\Delta^2s}{4}+\frac{\theta}{s}\right).
+        \]
+        \textbf{Object:} cross-sectional wage variance $\Var[V(\theta)]$ as
+        continuous tool quality $\theta$ changes.
+      \end{column}
+      \begin{column}{0.34\textwidth}
+        \textbf{Conditional U-shape}\par
+        \[
+        \frac{\E[\Gamma^2]}{\E[\Gamma]^2}<\mu_s\E[1/s] \tag{30}
+        \]
+        with $\Var(\Gamma/s)>0$ and an interior turn. Define
+        {\fontsize{6.0}{6.7}\selectfont
+        \[
+        \begin{aligned}
+          a_0={}&\frac{\Delta^2\E[\alpha^2]}{2}\\[-0.07cm]
+          &\times\left(\E[\Gamma^2]-\E[\Gamma]^2\right.\\[-0.07cm]
+          &\left.\qquad{}\times\mu_s\E[1/s]\right)<0,\\[0.02cm]
+          \frac{d\Var[V(\theta)]}{d\theta}={}&a_0+2\theta\Var(\Gamma/s),\\[0.02cm]
+          \theta^*={}&-\frac{a_0}{2\Var(\Gamma/s)}>0.
+        \end{aligned}
+        \]
+        }
+      \end{column}
+    \end{columns}
+  }
+
+  \vspace{-0.03cm}
+
+  \compactredblock{Variance audit}{%
+    \fontsize{6.5}{7.2}\selectfont
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.31\textwidth}
+        \textbf{What is U-shaped?}\par
+        $\Var[V(\theta)]$ across agents as $\theta$ changes.
+        \textbf{Intuition:} inverse skill bias equalizes first; heterogeneous
+        $\Gamma/s$ eventually widens wages.
+      \end{column}
+      \begin{column}{0.31\textwidth}
+        \textbf{Internal slip}\par
+        Condition (30) gives the initial fall. A positive interior slope at
+        $\theta=1$ also requires $\theta^*<1$.
+      \end{column}
+      \begin{column}{0.34\textwidth}
+        \textbf{Individual benefit is different}\par
+        $D_i(\theta)=\theta\Gamma_i/s_i$, so
+        \[
+        \Var[D(\theta)]=\theta^2\Var(\Gamma/s),
+        \]
+        which rises monotonically when $\Gamma/s$ is heterogeneous.
+      \end{column}
+    \end{columns}
+  }
+\end{frame}
+
+\end{document}

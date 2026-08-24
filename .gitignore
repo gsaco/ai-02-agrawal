@@ -1,0 +1,16 @@
+.DS_Store
+
+# Third-party paper retained locally but not redistributed.
+paper/w34034.pdf
+
+# LaTeX build products; presentation.pdf is intentionally tracked.
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
