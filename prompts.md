@@ -1,6 +1,6 @@
 # Conversation record
 
-[Open the shared ChatGPT conversation](https://chatgpt.com/s/cx_6a8c8299c9248191973dfa60461db087)
+[Open the shared ChatGPT conversation](https://chatgpt.com/s/cx_6a8cabf1400081919db03a619f556734)
 
 The transcript below contains the user requests and the completed final
 assistant responses from this Codex task. Transient progress messages, tool
@@ -337,7 +337,7 @@ braces to clarify”; “Missing open brace for superscript”; and “The follo
 macros are not allowed: `operatorname`” issues in my README files. If you
 cannot, reduce math notation in the README files. Also, commit the paper, so
 remove it from the gitignore. Redo `prompts.md` and instead share this link:
-[https://chatgpt.com/s/cx_6a8c7e94a5a481918059b7a58f8842ba](https://chatgpt.com/s/cx_6a8c7e94a5a481918059b7a58f8842ba).
+[previous shared-chat link, subsequently replaced].
 Also copy our entire chat as text—just this chat.
 
 ---
@@ -417,4 +417,117 @@ These changes were not committed or pushed.
 ## Turn 9 — User
 
 Update `prompts.md` with the actual conversation and update the shared link to:
-[https://chatgpt.com/s/cx_6a8c8299c9248191973dfa60461db087](https://chatgpt.com/s/cx_6a8c8299c9248191973dfa60461db087)
+[previous shared-chat link, subsequently replaced].
+
+---
+
+## Turn 9 — Assistant
+
+Updated `prompts.md` with the new shared-chat link and the conversation through
+Turn 9. The previous URL was retained only inside the historical Turn 6
+transcript. These changes were not committed or pushed at that stage.
+
+---
+
+## Turn 10 — User
+
+Commit and push.
+
+---
+
+## Turn 10 — Assistant
+
+Committed and pushed successfully.
+
+- Branch: `branch3`
+- Commit: `0bc721a`
+- Message: `Simplify README math and add extension appendix`
+- Local `branch3` and `origin/branch3` were synchronized.
+
+---
+
+## Turn 11 — User
+
+In the extension document, add 1.5 interline. Add the link to the PDF document
+of extensions in the README, just down the presentation links. Then commit and
+push.
+
+---
+
+## Turn 11 — Assistant
+
+Updated, committed, and pushed.
+
+- Added 1.5 line spacing to the extension document.
+- Kept the verdict and reference together on the final page.
+- Added a prominent extension-PDF link below the presentation links in the
+  README.
+- Recompiled and visually verified all eight pages.
+- Commit: `93b2264 Improve extension document readability`
+- `branch3` was synchronized with `origin/branch3`.
+
+---
+
+## Turn 12 — User
+
+Include my hand derivation of the envelope theorem. In the `README.md`, add one
+line saying what the photo shows. Then, commit and push.
+
+The handwritten photograph was attached to this request.
+
+---
+
+## Turn 12 — Assistant
+
+Added and pushed successfully.
+
+- Included the original photograph as
+  `hand/envelope-theorem-derivation.png`.
+- Embedded it in the README with a one-line explanation.
+- Commit: `643a40a Add handwritten envelope theorem derivation`
+- `branch3` was synchronized with `origin/branch3`.
+
+---
+
+## Turn 13 — User
+
+Help me to understand my Lean results.
+
+---
+
+## Turn 13 — Assistant
+
+The Lean project builds successfully, with no `sorry`, `admit`, or additional
+axioms. The build verifies the algebraic core of the critique conditional on
+the assumptions encoded in the theorem statements; it does not verify the
+paper's entire economic model.
+
+The optimization module proves that, under the stated interior conditions, the
+closed-form effort is positive, satisfies the first-order condition, produces
+the stated optimized value, and is the unique global maximum over non-negative
+effort. The global result is stronger than checking the first-order condition
+because the value gap is written as a non-negative square. It also proves that
+positive interior effort at tool quality one forces the uncapped square-root
+success index above one, confirming the probability/interiority conflict.
+
+The variance module verifies that total continuation-value variance is
+quadratic in continuous tool quality, that condition (30) is equivalent to a
+negative initial slope under the positivity assumptions, and that positive
+curvature gives a unique turning point with variance decreasing before it and
+increasing afterward. It proves that a positive slope at tool quality one is
+equivalent to the additional condition that the turning point lies below one.
+It also proves that individual adoption-benefit variance rises monotonically
+for non-negative tool quality when curvature is positive.
+
+The formalization does not construct the probability model, prove independence
+or moment feasibility, encode the common-interior range inside the variance
+theorem statements, cover heterogeneous zero-effort corners, or prove all of
+Propositions 1 and 2 in their general form. The correct description is a
+machine-checked algebraic audit under explicit assumptions.
+
+---
+
+## Turn 14 — User
+
+Please update `prompts.md` and replace the old shared link with:
+[https://chatgpt.com/s/cx_6a8cabf1400081919db03a619f556734](https://chatgpt.com/s/cx_6a8cabf1400081919db03a619f556734)
