@@ -1,0 +1,305 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Avenir Next}
+  {\setmainfont{Avenir Next}}
+  {\setmainfont{TeX Gyre Heros}}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+\definecolor{navy}{HTML}{0C2852}
+\definecolor{red}{HTML}{982A34}
+\definecolor{bluewash}{HTML}{F5F6F8}
+\definecolor{redwash}{HTML}{F9F5F5}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setstretch{1.5}
+\setlist[itemize]{leftmargin=1.5em,itemsep=0.35em,topsep=0.3em}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+
+\newenvironment{auditbox}
+  {\begin{center}\begin{minipage}{0.94\textwidth}\color{navy}\hrule\vspace{0.55em}}
+  {\vspace{0.45em}\hrule\end{minipage}\end{center}}
+
+\begin{document}
+
+\begin{titlepage}
+  \vspace*{2.4cm}
+  {\color{navy}\Huge\bfseries Variance Audit and Extensions\par}
+  \vspace{0.45cm}
+  {\Large\color{red} The Economics of Bicycles for the Mind\par}
+  \vspace{0.65cm}
+  {\color{red}\rule{\textwidth}{0.7pt}\par}
+  \vspace{1.0cm}
+  {\large Gabriel Saco\par}
+  \vspace{0.15cm}
+  {Universidad del Pac\'ifico\par}
+  \vfill
+  {\small Technical companion to Agrawal, Gans, and Goldfarb (2025)\par}
+  \vspace{0.15cm}
+  {\small August 24, 2026\par}
+\end{titlepage}
+
+\section*{Purpose and main finding}
+
+This note checks Propositions 2 and 3 of Agrawal, Gans, and Goldfarb (2025).
+The paper interprets continuation value, $V(\theta)$, as wages. Its absolute
+inequality object is therefore the cross-sectional variance of total
+continuation value, not the variance of an individual's adoption benefit.
+
+\begin{auditbox}
+\textbf{Audit conclusion.} Within the common interior region, total-value
+variance can be U-shaped in continuous tool quality. The initial decline needs
+the paper's heterogeneity condition, while a positive slope specifically at
+$\theta=1$ needs the additional restriction $\theta^\star<1$. By contrast,
+individual-benefit variance rises monotonically whenever $\Gamma/s$ is
+heterogeneous.
+\end{auditbox}
+
+\section{Specialized solution and its domain}
+
+Under the paper's specialized technology,
+\begin{equation}
+  p(se;\theta)=\sqrt{se+\theta},
+  \qquad c(e)=e,
+\end{equation}
+the per-opportunity objective and first-order condition are
+\begin{align}
+  M(e;\theta)&=\alpha\Delta\sqrt{se+\theta}-e,\\
+  \frac{\alpha\Delta s}{2\sqrt{se+\theta}}&=1.
+\end{align}
+Solving the first-order condition gives
+\begin{align}
+  e^*(\theta)&=\frac{\alpha^2\Delta^2s}{4}-\frac{\theta}{s},\\
+  M(\theta)&=\frac{\alpha^2\Delta^2s}{4}+\frac{\theta}{s}.
+\end{align}
+The interior solution is valid only when
+\begin{equation}
+  \theta<\frac{\alpha^2\Delta^2s^2}{4}.
+  \label{eq:interior}
+\end{equation}
+
+Let the discounted opportunity multiplier be
+\begin{equation}
+  \Gamma=\frac{\gamma_0}{1-\delta\gamma},
+  \qquad K\equiv\frac{\Delta^2}{4}.
+\end{equation}
+Then continuation value inside the common interior region is
+\begin{equation}
+  V(\theta)=\Gamma\left(K\alpha^2s+\frac{\theta}{s}\right).
+  \label{eq:value}
+\end{equation}
+
+The constrained optimum, which is also meaningful outside that region, is
+\begin{equation}
+  e^*(\theta)=\max\left\{K\alpha^2s-\frac{\theta}{s},0\right\}.
+\end{equation}
+At the corner, the per-opportunity value is
+$M(0;\theta)=\alpha\Delta\sqrt{\theta}$. The quadratic variance formula below
+must not be extrapolated through a population in which some workers have
+reached this corner.
+
+\section{Cross-sectional variance of continuation value}
+
+Independence of $\Gamma$ from $(\alpha,s)$ implies
+\begin{equation}
+  \Var(V)
+  =\E[\Gamma^2]\Var(M)+\Var(\Gamma)\E[M]^2.
+  \label{eq:productvar}
+\end{equation}
+The first two moments of the per-opportunity value can be organized as
+\begin{align}
+  \E[M]&=K\E[\alpha^2]\mu_s+\theta\E[1/s],\\
+  \Var(M)&=A+B\theta+C\theta^2,
+\end{align}
+where
+\begin{align}
+  A&=K^2\Var(\alpha^2s),\\
+  B&=2K\E[\alpha^2]\left\{1-\mu_s\E[1/s]\right\},\\
+  C&=\Var(1/s).
+\end{align}
+Differentiating equation~\eqref{eq:productvar} and collecting terms yields
+\begin{equation}
+  \frac{d\Var[V(\theta)]}{d\theta}
+  =a_0+2\theta\Var(\Gamma/s),
+  \label{eq:slope}
+\end{equation}
+with
+\begin{equation}
+  a_0=\frac{\Delta^2\E[\alpha^2]}{2}
+  \left\{\E[\Gamma^2]
+  -\E[\Gamma]^2\mu_s\E[1/s]\right\}.
+  \label{eq:a0}
+\end{equation}
+
+Condition (30) in the paper is
+\begin{equation}
+  \frac{\E[\Gamma^2]}{\E[\Gamma]^2}
+  <\mu_s\E[1/s].
+  \label{eq:condition30}
+\end{equation}
+It is exactly the condition $a_0<0$. If, in addition,
+$\Var(\Gamma/s)>0$, variance is strictly convex and has one minimum:
+\begin{equation}
+  \theta^\star
+  =-\frac{a_0}{2\Var(\Gamma/s)}>0.
+  \label{eq:turning}
+\end{equation}
+Thus condition (30) proves an initial decline followed by an eventual upturn
+as long as the relevant range remains interior. It does not locate that
+upturn before any particular positive value of tool quality.
+
+\section{Individual adoption benefit is a different variance}
+
+For worker $i$, the adoption gain relative to no tool is
+\begin{equation}
+  D_i(\theta)
+  =V_i(\theta)-V_i(0)
+  =\theta\frac{\Gamma_i}{s_i}.
+\end{equation}
+Therefore,
+\begin{align}
+  \Var[D(\theta)]&=\theta^2\Var(\Gamma/s),\\
+  \frac{d\Var[D(\theta)]}{d\theta}
+    &=2\theta\Var(\Gamma/s)>0
+    \qquad (\theta>0).
+\end{align}
+This variance is monotone, not U-shaped. The economic distinction is simple:
+total continuation value contains baseline heterogeneity as well as the tool
+gain; the individual benefit isolates only the tool gain.
+
+\section{Internal slips in the variance section}
+
+\subsection{Equation (32) needs another condition}
+
+Equation (32) states that condition (30) makes the variance slope negative at
+$\theta=0$ and positive at $\theta=1$. The first statement follows from
+equation~\eqref{eq:a0}. The second is equivalent to
+\begin{equation}
+  a_0+2\Var(\Gamma/s)>0
+  \quad\Longleftrightarrow\quad
+  \theta^\star<1,
+\end{equation}
+which is an additional restriction absent from the proposition.
+
+\subsection{The printed positivity condition is insufficient}
+
+The text before Proposition 3 assumes
+$\Delta>2/(s\sqrt{\alpha})$ ``so that optimal effort is positive.'' At
+$\theta=1$, however, the solved effort formula requires
+\begin{equation}
+  \Delta>\frac{2}{\alpha s}.
+\end{equation}
+For $0<\alpha<1$, the printed condition is weaker and does not guarantee
+positive effort.
+
+\subsection{Probability and interiority clash at one}
+
+At an interior optimum,
+\begin{equation}
+  p(se^*;\theta)
+  =\sqrt{se^*+\theta}
+  =\frac{\alpha\Delta s}{2}.
+\end{equation}
+Positive effort at $\theta=1$ requires $\alpha\Delta s/2>1$, whereas the
+general model defines $p\in[0,1]$. The square-root expression therefore cannot
+be both a literal probability and an interior specification at that endpoint.
+It must instead be read as an uncapped productivity index, capped or rescaled,
+or solved with the corner.
+
+\section{Two Proposition 2 caveats}
+
+\subsection{General opportunity timing}
+
+For
+\begin{equation}
+  \Gamma=\sum_{k=0}^{\infty}
+  \left(\prod_{i=0}^{k}\gamma(i)\right)\delta^k,
+\end{equation}
+the derivative of the entire continuation multiplier is
+\begin{equation}
+  \frac{\partial\Gamma}{\partial\gamma(t)}
+  =\sum_{k=t}^{\infty}\delta^k
+  \prod_{\substack{i=0\\ i\ne t}}^{k}\gamma(i).
+\end{equation}
+The displayed ratio in Proposition 2 retains only the $k=t$ term. A general
+early-versus-late ranking depends on the full opportunity path. The geometric
+special case can still deliver the paper's intended discounting result.
+
+\subsection{Tool-skill substitutability at the optimizer}
+
+The envelope theorem gives
+\begin{equation}
+  \frac{\partial[V_0(1)-V_0(0)]}{\partial s}
+  =\Gamma\alpha\Delta
+  \left[p_s(se^*(1);1)-p_s(se^*(0);0)\right].
+\end{equation}
+The condition $p_{s\theta}<0$ compares tool qualities while holding effort
+fixed. Because $e^*(1)\ne e^*(0)$, it does not by itself imply the
+optimizer-level inequality inside the brackets. An additional restriction on
+the effort effect is required.
+
+\section{Exact-moment counterexample}
+
+Let all variables be mutually independent and distributed as
+\begin{equation}
+  \alpha\sim U(.75,.85),\quad
+  \gamma_0\sim U(.48,.52),\quad
+  \gamma\sim U(.36,.44),\quad
+  s\sim U(.8,1),
+\end{equation}
+with $\delta=.8$ and $\Delta=5$. Every variable has positive support and
+satisfies the paper's restriction that its mean exceed three standard
+deviations. Exact moments give
+\begin{equation}
+  1.0012732
+  =\frac{\E[\Gamma^2]}{\E[\Gamma]^2}
+  <\mu_s\E[1/s]
+  =1.0041460.
+\end{equation}
+Thus condition (30) holds. Nevertheless,
+\begin{align}
+  \theta^\star&=1.7007141,\\
+  \left.\frac{d\Var(V)}{d\theta}\right|_{\theta=1}
+  &=-0.0051337<0.
+\end{align}
+The smallest interior boundary in the population is $2.25$, so the turning
+point remains inside the common interior region. This is a counterexample to
+the slope-at-one claim, not to the conditional U-shape itself.
+
+\section{Limiting cases and corner behavior}
+
+\begin{itemize}
+  \item If $\Gamma/s$ is homogeneous, there is no strict quadratic curvature.
+  \item With constant $\Gamma$ but heterogeneous skill, inverse skill bias can
+    reduce total-value variance initially, while benefit variance still rises.
+  \item With constant skill and heterogeneous $\Gamma$, the inverse-skill
+    equalizing channel disappears and tool quality raises variance.
+  \item At large $\theta$, heterogeneous workers reach zero effort at different
+    thresholds. The interior U-shape is therefore not a global variance result.
+\end{itemize}
+
+\clearpage
+\section*{Verdict}
+
+The phrase ``variance is U-shaped in the level of AI'' is incomplete. The
+paper studies the cross-sectional variance of total continuation value with
+respect to continuous tool quality, subject to a heterogeneity threshold and a
+common interior solution. Individual-benefit variance rises monotonically, and
+the paper's endpoint claim requires the missing condition
+$\theta^\star<1$.
+
+\section*{Reference}
+
+Agrawal, Ajay K., Joshua S. Gans, and Avi Goldfarb. 2025. ``The Economics of
+Bicycles for the Mind.'' NBER Working Paper 34034.
+doi:10.3386/w34034.
+
+\end{document}
