@@ -42,11 +42,11 @@ obtain from it:
 
 ## The agent's problem
 
-Conditional on an opportunity in period $t$, the agent chooses effort $e_t$:
+Conditional on an opportunity in period $t$, the agent chooses effort $e_{t}$:
 
 $$
-e_t^*(\theta)\in\arg\max_{e_t\geq0}
-\left\{p(se_t;\theta)\alpha\Delta-c(e_t;\theta)\right\}.
+e_{t}^{*}(\theta)\in\arg\max_{e_{t}\geq 0}
+\{p(se_{t};\theta)\alpha\Delta-c(e_{t};\theta)\}.
 $$
 
 Here $\theta$ is tool quality and $\Delta>0$ is the value of an improvement.
@@ -56,7 +56,7 @@ tool raises $p$ and/or lowers $c$, while lowering the marginal success-to-cost
 ratio. At an interior optimum,
 
 $$
-p'(se_t^*;\theta)s\alpha\Delta=c'(e_t^*;\theta).
+p'(se_{t}^{*};\theta)s\alpha\Delta=c'(e_{t}^{*};\theta).
 $$
 
 ## Propositions 1 and 2
@@ -65,14 +65,15 @@ $$
 every period, makes effort time-invariant, and raises expected task value:
 
 $$
-e_t^*(1)<e_t^*(0),\qquad e_t^*(\theta)=e^*(\theta),\qquad V_0(1)>V_0(0).
+e_{t}^{*}(1)<e_{t}^{*}(0),\qquad
+e_{t}^{*}(\theta)=e^{*}(\theta),\qquad V_{0}(1)>V_{0}(0).
 $$
 
 **Proposition 2.** If $\Gamma$ denotes the discounted opportunity multiplier,
 the adoption gain is
 
 $$
-V_0(1)-V_0(0)=\Gamma\,[M(e^*(1);1)-M(e^*(0);0)]>0.
+V_{0}(1)-V_{0}(0)=\Gamma[M(e^{*}(1);1)-M(e^{*}(0);0)]>0.
 $$
 
 Opportunity judgment scales the gain. Payoff judgment complements adoption
@@ -85,17 +86,16 @@ general statement.
 
 The inequality result specializes the model to
 $p(se;\theta)=\sqrt{se+\theta}$, $c(e)=e$, and
-$\Gamma=\gamma_0/(1-\delta\gamma)$. It treats $\theta\geq0$ as continuous and
+$\Gamma=\gamma_{0}/(1-\delta\gamma)$. It treats $\theta\geq 0$ as continuous and
 assumes $\delta\gamma<1$. The heterogeneous variables
-$\alpha,\gamma_0,\gamma,s$ are mutually independent, have positive support,
-and satisfy the paper's moment restriction $\mu_i>3\sigma_i$.
+$\alpha,\gamma_{0},\gamma,s$ are mutually independent, have positive support,
+and satisfy the paper's moment restriction $\mu_{i}>3\sigma_{i}$.
 
 Within the range in which every worker has positive interior effort,
 
 $$
-V(\theta)=\Gamma\left(\frac{\alpha^2\Delta^2s}{4}+\frac{\theta}{s}\right),
-\qquad
-\theta<\frac{\alpha^2\Delta^2s^2}{4}.
+V(\theta)=\Gamma(\alpha^{2}\Delta^{2}s/4+\theta/s),
+\qquad \theta<\alpha^{2}\Delta^{2}s^{2}/4.
 $$
 
 The U-shape is in the **cross-sectional variance of continuation value
@@ -103,25 +103,20 @@ $V(\theta)$**, interpreted as wages, **with respect to tool quality $\theta$**.
 It requires
 
 $$
-\frac{\mathbb{E}[\Gamma^2]}{\mathbb{E}[\Gamma]^2}
-<\mu_s\mathbb{E}[1/s],
-\qquad \operatorname{Var}(\Gamma/s)>0.
+E[\Gamma^{2}]/E[\Gamma]^{2}<\mu_{s}E[1/s].
 $$
+
+It also requires positive cross-sectional variance in $\Gamma/s$.
 
 Under these conditions the variance slope is linear, initially negative, and
-crosses zero once at $\theta^*>0$. The paper's stronger displayed claim that
+crosses zero once at $\theta^{*}>0$. The paper's stronger displayed claim that
 the slope is already positive at $\theta=1$ additionally requires
-$\theta^*<1$.
+$\theta^{*}<1$.
 
-The variance of the **individual adoption benefit** is a different object. If
-$D_i(\theta)=V_i(\theta)-V_i(0)$, then
-
-$$
-\operatorname{Var}[D(\theta)]
-=\theta^2\operatorname{Var}(\Gamma/s),
-$$
-
-which increases monotonically for $\theta>0$ whenever $\Gamma/s$ is heterogeneous.
+The variance of the **individual adoption benefit** is a different object. For
+worker $i$, the gain is $D_{i}(\theta)=V_{i}(\theta)-V_{i}(0)=\theta\Gamma_{i}/s_{i}$.
+Its cross-sectional variance is $\theta^{2}$ times the variance of $\Gamma/s$,
+so it increases monotonically for $\theta>0$ whenever $\Gamma/s$ is heterogeneous.
 
 *Intuition:* inverse skill bias initially compresses wage dispersion because
 the tool boost is $\theta/s$, but heterogeneous opportunity judgment can
@@ -137,11 +132,14 @@ eventually amplify those gains enough to widen dispersion again.
 │   ├── presentation-long.tex   # 26-frame technical deck
 │   └── presentation-long.pdf
 ├── hand/README.md              # Where to add the handwritten audit photo
-├── paper/README.md             # Citation and official links
+├── paper/
+│   ├── README.md               # Citation and official links
+│   └── THE ECONOMICS OF BICYCLES FOR THE MIND.pdf
+│                               # Source paper included in the repository
 ├── presentation.tex            # Three-frame oral-exam deck
 ├── presentation.pdf
 ├── extensions.md               # Algebra, slips, counterexample, limiting cases
-├── prompts.md                  # Raw prompt-and-answer audit log
+├── prompts.md                  # Shared-chat link and this task transcript
 ├── sim.py                      # Deterministic SymPy and exact-moment checks
 └── requirements.txt
 ```

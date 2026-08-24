@@ -1,7 +1,4 @@
 .DS_Store
-paper/*.pdf
-!presentation.pdf
-!extra/presentation-long.pdf
 
 # LaTeX build products
 *.aux
@@ -20,4 +17,3 @@ build/
 __pycache__/
 *.pyc
 .venv/
-
