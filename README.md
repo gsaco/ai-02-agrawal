@@ -23,6 +23,16 @@
   <img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white">
 </p>
 
+## Presentations
+
+> ### [▶ Open the short presentation — 3-frame PDF](presentation.pdf)
+>
+> [View its Beamer source](presentation.tex)
+
+> ### [▶ Open the extended presentation — 26-frame PDF](extra/presentation-long.pdf)
+>
+> [View its Beamer source](extra/presentation-long.tex)
+
 This repository studies Ajay Agrawal, Joshua Gans, and Avi Goldfarb's *The
 Economics of Bicycles for the Mind* (2025), an **unrefereed NBER working paper**
 about computers and AI as cognitive tools. It is not an arXiv paper.
