@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="430" viewBox="0 0 1600 430" role="img" aria-labelledby="title desc">
+  <title id="title">The Economics of Bicycles for the Mind</title>
+  <desc id="desc">Repository banner with a restrained navy background, red accent, and cognitive-tool diagram.</desc>
+  <rect width="1600" height="430" fill="#0C2852"/>
+  <rect x="0" y="0" width="14" height="430" fill="#982A34"/>
+  <path d="M1030 100 C1110 52 1245 55 1320 118 C1404 188 1390 307 1290 340 C1191 373 1089 327 1061 247 C1032 163 1117 103 1210 137 C1280 163 1290 243 1237 278 C1182 314 1110 280 1114 224 C1118 180 1167 162 1201 186" fill="none" stroke="#EBEEF1" stroke-width="9" opacity="0.92" stroke-linecap="round"/>
+  <circle cx="1122" cy="316" r="55" fill="none" stroke="#F4E8EA" stroke-width="8"/>
+  <circle cx="1322" cy="316" r="55" fill="none" stroke="#F4E8EA" stroke-width="8"/>
+  <path d="M1122 316 L1194 232 L1250 316 L1170 316 L1122 316 M1194 232 L1287 231 M1250 316 L1322 316 M1287 231 L1322 316" fill="none" stroke="#982A34" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1194" cy="232" r="11" fill="#982A34"/>
+  <text x="95" y="145" fill="#FFFFFF" font-family="Avenir Next, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="2">REPOSITORY 2 · AI ECONOMIC MODELING</text>
+  <text x="95" y="228" fill="#FFFFFF" font-family="Avenir Next, Helvetica, Arial, sans-serif" font-size="55" font-weight="700">The Economics of Bicycles</text>
+  <text x="95" y="294" fill="#FFFFFF" font-family="Avenir Next, Helvetica, Arial, sans-serif" font-size="55" font-weight="700">for the Mind</text>
+  <line x1="95" y1="335" x2="884" y2="335" stroke="#982A34" stroke-width="5"/>
+  <text x="95" y="382" fill="#EBEEF1" font-family="Avenir Next, Helvetica, Arial, sans-serif" font-size="25">Cognitive tools · human judgment · inequality</text>
+</svg>
+

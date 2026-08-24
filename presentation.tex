@@ -1,0 +1,111 @@
+% Compatibility shims for a newer local hyperref with the installed LaTeX kernel.
+\providecommand\IfDocumentMetadataT[1]{}
+\providecommand\IfDocumentMetadataTF[2]{#2}
+\documentclass[aspectratio=169,9pt]{beamer}
+\input{assets/agrawal-beamer.sty}
+\setbeamersize{text margin left=0.55cm,text margin right=0.55cm}
+
+\begin{document}
+
+% 1/3 — title
+\begin{frame}[plain]
+  \agtitlepage
+    {Cognitive tools, human judgment, and inequality}
+    {}
+    {AI Economic Modeling}
+\end{frame}
+\agrestorefootline
+
+% 2/3 — paper and problem
+\begin{frame}[t]{The paper and the agent's problem}
+  \vspace{0.44cm}
+
+  \agshortredblock{Question and single mechanism}{%
+    \small
+    \textbf{Question.} When a cognitive tool makes implementation easier, how do
+    effort, productivity, returns to human abilities, and inequality change?
+
+    \vspace{0.08cm}
+    \textbf{Mechanism.} The tool is a \alert{substitute for implementation effort}
+    at the margin; implementation skill $s$, payoff judgment $\alpha$, and
+    opportunity judgment $\gamma(t)$ determine who can exploit it.
+  }
+
+  \vspace{0.40cm}
+
+  \agshortblueblock{Agent's problem, conditional on finding an opportunity}{%
+    \agshorttwocol{.535}{%
+      \small Choose effort $e_t$ to maximize expected improvement value net of cost:
+      \[
+        \boxed{e_t^*(\theta)\in\arg\max_{e_t\ge0}
+        \{p(se_t;\theta)\alpha\Delta-c(e_t;\theta)\}.}
+      \]
+      \vspace{-0.18cm}
+      {\small Interior FOC:
+      $p'(se_t^*;\theta)s\alpha\Delta=c'(e_t^*;\theta)$.}
+    }{.385}{%
+      \small
+      \textbf{Choice and constraint:} $e_t\ge0$.\\[0.10cm]
+      \textbf{Technology:} $p\in[0,1]$ is increasing and weakly concave.\\[0.10cm]
+      \textbf{Cost:} $c$ is increasing and weakly convex.\\[0.10cm]
+      \textbf{Tool:} raises $p$ and/or lowers $c$, while lowering $p'/c'$.
+    }
+  }
+\end{frame}
+
+% 3/3 — corrected exact result
+\begin{frame}[t]{Proposition 3: the conditional variance result}
+  \setlength{\abovedisplayskip}{0.32em}
+  \setlength{\belowdisplayskip}{0.32em}
+  \vspace{0.10cm}
+
+  \agshortcompactblueblock{Specialization and conditions}{%
+    \small
+    \agshorttwocol{.445}{%
+      $p(se;\theta)=\sqrt{se+\theta}$, $c(e)=e$;
+      $\Gamma=\gamma_0/(1-\delta\gamma)$ and $\delta\gamma<1$.
+    }{.445}{%
+      $\alpha,\gamma_0,\gamma,s$ are independent, have positive support,
+      and satisfy $\mu_i>3\sigma_i$.
+    }
+    \vspace{0.07cm}
+    Common interior range:
+    $\theta<\alpha^2\Delta^2s^2/4$ for every worker under comparison.
+  }
+
+  \vspace{0.18cm}
+
+  \agshortcompactredblock{Corrected exact statement}{%
+    \small
+    \agshorttwocol{.445}{%
+      \[
+      V(\theta)=\Gamma\left(\frac{\alpha^2\Delta^2s}{4}+\frac{\theta}{s}\right).
+      \]
+      \[
+      \frac{d\E[V]}{d\theta}=\E[\Gamma]\E[1/s]>0.
+      \]
+      The U-shape concerns cross-sectional $\Var[V(\theta)]$ as continuous
+      tool quality $\theta$ changes.
+    }{.445}{%
+      If
+      \[
+      \frac{\E[\Gamma^2]}{\E[\Gamma]^2}<\mu_s\E[1/s],
+      \qquad \Var(\Gamma/s)>0,
+      \]
+      then $\Var[V(\theta)]$ is strictly convex, falls for
+      $\theta<\theta^*$, and rises for $\theta>\theta^*$, where
+      $\theta^*=-a_0/[2\Var(\Gamma/s)]>0$.
+    }
+  }
+
+  \vspace{0.18cm}
+
+  \agshortcompactblueblock{Endpoint correction and intuition}{%
+    \small
+    Equation (32)'s positive slope at $\theta=1$ also requires
+    \alert{$\theta^*<1$}. \textbf{Intuition:} inverse skill bias equalizes first;
+    heterogeneous opportunity judgment can dominate later.
+  }
+\end{frame}
+
+\end{document}

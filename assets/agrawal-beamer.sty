@@ -1,0 +1,154 @@
+\NeedsTeXFormat{LaTeX2e}
+% Shared Agrawal homework style (loaded with \input from either deck).
+
+\RequirePackage{fontspec}
+\RequirePackage{amsmath,amssymb,mathtools}
+\RequirePackage{booktabs}
+\RequirePackage{graphicx}
+\RequirePackage{microtype}
+\RequirePackage{ragged2e}
+\RequirePackage{hyperref}
+\RequirePackage{tikz}
+\usetikzlibrary{positioning}
+
+\IfFontExistsTF{Avenir Next}{\setsansfont{Avenir Next}}{\setsansfont{TeX Gyre Heros}}
+
+% Palette sampled from the supplied reference screenshot.
+\definecolor{AgNavy}{HTML}{0C2852}
+\definecolor{AgRed}{HTML}{982A34}
+\definecolor{AgGraphite}{HTML}{000000}
+\definecolor{AgMuted}{HTML}{000000}
+\definecolor{AgRedTitle}{HTML}{F4E8EA}
+\definecolor{AgRedBody}{HTML}{F9F5F5}
+\definecolor{AgBlueTitle}{HTML}{EBEEF1}
+\definecolor{AgBlueBody}{HTML}{F5F6F8}
+\definecolor{AgDivider}{HTML}{D9DEE4}
+
+\usetheme{default}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=0.85cm,text margin right=0.85cm}
+
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=AgGraphite,bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=AgNavy}
+\setbeamercolor{structure}{fg=AgNavy}
+\setbeamercolor{alerted text}{fg=AgRed}
+\setbeamercolor{ag red title}{fg=AgRed,bg=AgRedTitle}
+\setbeamercolor{ag red body}{fg=AgGraphite,bg=AgRedBody}
+\setbeamercolor{ag blue title}{fg=AgNavy,bg=AgBlueTitle}
+\setbeamercolor{ag blue body}{fg=AgGraphite,bg=AgBlueBody}
+\setbeamercolor{ag accent line}{bg=AgRed}
+\setbeamercolor{ag divider line}{bg=AgDivider}
+
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{normal text}{size=\normalsize}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.62cm,dp=0.23cm,leftskip=0.40cm]{frametitle}%
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \hbox{%
+    \begin{beamercolorbox}[wd=1.05cm,ht=0.018cm,dp=0cm]{ag accent line}\end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\dimexpr\paperwidth-1.05cm\relax,ht=0.018cm,dp=0cm]{ag divider line}\end{beamercolorbox}%
+  }%
+}
+
+\setbeamertemplate{footline}{}
+
+\setbeamertemplate{itemize item}{\color{AgNavy}\raise0.12ex\hbox{\scriptsize$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\color{AgRed}\raise0.08ex\hbox{\tiny$\bullet$}}
+\setlength{\leftmargini}{1.05em}
+\setlength{\leftmarginii}{1.0em}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+
+\newcommand{\agredblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.11cm]{ag red title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.14cm]{ag red body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agblueblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.11cm]{ag blue title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.14cm]{ag blue body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agcompactredblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.08cm]{ag red title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.09cm]{ag red body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agcompactblueblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.08cm]{ag blue title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.09cm]{ag blue body}#2\end{beamercolorbox}%
+}
+
+% Roomier variants used by the short deck: wider internal gutters without
+% changing the more compact geometry of the 26-frame presentation.
+\newcommand{\agshortredblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.12cm,leftskip=0.08cm,rightskip=0.08cm]{ag red title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.16cm,leftskip=0.10cm,rightskip=0.10cm]{ag red body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agshortblueblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.12cm,leftskip=0.08cm,rightskip=0.08cm]{ag blue title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.16cm,leftskip=0.10cm,rightskip=0.10cm]{ag blue body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agshortcompactredblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.10cm,leftskip=0.08cm,rightskip=0.08cm]{ag red title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.12cm,leftskip=0.12cm,rightskip=0.12cm]{ag red body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agshortcompactblueblock}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.10cm,leftskip=0.08cm,rightskip=0.08cm]{ag blue title}\usebeamerfont{block title}#1\end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.12cm,leftskip=0.12cm,rightskip=0.12cm]{ag blue body}#2\end{beamercolorbox}%
+}
+
+\newcommand{\agshorttwocol}[4]{%
+  \noindent\hspace*{0.18cm}%
+  \begin{minipage}[t]{#1\linewidth}\vspace{0pt}#2\end{minipage}%
+  \hfill
+  \begin{minipage}[t]{#3\linewidth}\vspace{0pt}#4\end{minipage}%
+  \hspace*{0.18cm}\par
+}
+
+\newcommand{\agtitlepage}[3]{%
+  \setbeamertemplate{footline}{}%
+  \vspace*{1.68cm}
+  {\fontsize{17}{20}\selectfont\bfseries The Economics of Bicycles for the Mind\par}
+  \vspace{0.18cm}
+  {\fontsize{12.5}{15}\selectfont #1\par}
+  \vspace{0.48cm}
+  {\color{AgRed}\rule{\linewidth}{0.48pt}}
+  \vspace{0.55cm}
+  {\normalsize\bfseries Gabriel Saco\par}
+  \vspace{0.06cm}
+  {\normalsize August 24, 2026\par}
+  \vspace{0.22cm}
+  {\small Universidad del Pac\'ifico\par}
+  \vspace{0.22cm}
+  {\small\color{AgMuted}Agrawal, Gans \& Goldfarb (2025) \textperiodcentered\ NBER WP 34034\par}
+  \vspace{0.12cm}
+  {\small\href{https://github.com/gsaco/ai-02-agrawal}{\color{AgNavy}\ttfamily github.com/gsaco/ai-02-agrawal}\par}
+  \vfill
+  {\scriptsize\color{AgMuted}#2\hfill #3\par}
+}
+
+\newcommand{\agrestorefootline}{%
+  \setbeamertemplate{footline}{}%
+}

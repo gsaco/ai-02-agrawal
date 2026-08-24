@@ -1,0 +1,23 @@
+.DS_Store
+paper/*.pdf
+!presentation.pdf
+!extra/presentation-long.pdf
+
+# LaTeX build products
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
