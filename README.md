@@ -103,6 +103,14 @@ quality, so it increases monotonically whenever that ratio is heterogeneous.
 the tool boost is larger for lower-skill workers, but heterogeneous opportunity
 judgment can eventually amplify those gains enough to widen dispersion again.
 
+## Handwritten derivation
+
+The photo shows my handwritten envelope-theorem derivation separating the direct and indirect effects and using the effort first-order condition, as in Proposition 2.
+
+<p align="center">
+  <a href="hand/envelope-theorem-derivation.png"><img src="hand/envelope-theorem-derivation.png" alt="Handwritten envelope-theorem derivation" width="760"></a>
+</p>
+
 ## Repository structure
 
 ```text
@@ -118,15 +126,14 @@ judgment can eventually amplify those gains enough to widen dispersion again.
 ├── extensions/
 │   ├── extensions.tex          # Full derivations and audit
 │   └── extensions.pdf
+├── hand/
+│   └── envelope-theorem-derivation.png
 ├── presentation.tex            # Three-frame oral-exam deck
 ├── presentation.pdf
 ├── prompts.md                  # Shared-chat link and this task transcript
 ├── sim.py                      # Deterministic SymPy and exact-moment checks
 └── requirements.txt
 ```
-
-The student must add their own handwritten derivation photograph before
-submission.
 
 ## Reproduce the audit
 
