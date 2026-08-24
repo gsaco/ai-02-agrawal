@@ -10,7 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="presentation.tex"><img alt="Beamer source" src="https://img.shields.io/badge/Source-Beamer-008080?style=flat-square&logo=latex&logoColor=white"></a>
+  <a href="presentation.pdf"><img alt="Short presentation PDF" src="https://img.shields.io/badge/Short%20Presentation-PDF-982A34?style=flat-square&logo=adobeacrobatreader&logoColor=white"></a>
+  <a href="extra/presentation-long.pdf"><img alt="Extended presentation PDF" src="https://img.shields.io/badge/Extended%20Presentation-PDF-0C2852?style=flat-square&logo=adobeacrobatreader&logoColor=white"></a>
   <a href="sim.py"><img alt="SymPy audit" src="https://img.shields.io/badge/Audit-SymPy-3B5526?style=flat-square&logo=sympy&logoColor=white"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-4B5563?style=flat-square"></a>
 </p>
@@ -26,16 +27,11 @@
 ## Presentations
 
 > ### [▶ Open the short presentation — 3-frame PDF](presentation.pdf)
->
-> [View its Beamer source](presentation.tex)
 
 > ### [▶ Open the extended presentation — 26-frame PDF](extra/presentation-long.pdf)
->
-> [View its Beamer source](extra/presentation-long.tex)
 
 This repository studies Ajay Agrawal, Joshua Gans, and Avi Goldfarb's *The
-Economics of Bicycles for the Mind* (2025), an **unrefereed NBER working paper**
-about computers and AI as cognitive tools. It is not an arXiv paper.
+Economics of Bicycles for the Mind* (2025).
 
 ## What question does the paper answer?
 
@@ -46,91 +42,64 @@ The single mechanism is that the tool **substitutes for human implementation
 effort at the margin**, while judgment determines how much value the agent can
 obtain from it:
 
-- Implementation skill $s$ makes effort more effective.
-- Payoff judgment $\alpha$ determines whether successful implementation creates value.
-- Opportunity judgment $\gamma(t)$ determines whether another improvement opportunity is found.
+- **Implementation skill** makes effort more effective.
+- **Payoff judgment** determines whether successful implementation creates value.
+- **Opportunity judgment** determines whether another improvement opportunity is found.
 
 ## The agent's problem
 
-Conditional on an opportunity in period $t$, the agent chooses effort $e_{t}$:
-
-$$
-e_{t}^{*}(\theta)\in\arg\max_{e_{t}\geq 0}
-\{p(se_{t};\theta)\alpha\Delta-c(e_{t};\theta)\}.
-$$
-
-Here $\theta$ is tool quality and $\Delta>0$ is the value of an improvement.
-The success probability $p\in[0,1]$ is increasing and weakly concave in
-skill-augmented effort; cost $c$ is increasing and weakly convex. A cognitive
-tool raises $p$ and/or lowers $c$, while lowering the marginal success-to-cost
-ratio. At an interior optimum,
-
-$$
-p'(se_{t}^{*};\theta)s\alpha\Delta=c'(e_{t}^{*};\theta).
-$$
+Conditional on an opportunity, the agent chooses **non-negative effort** to
+maximize the expected value of a successful improvement minus effort cost.
+Success depends on implementation skill, effort, payoff judgment, tool quality,
+and the value of the improvement. Success is increasing and weakly concave in
+skill-adjusted effort, while cost is increasing and weakly convex. A cognitive
+tool raises success and/or lowers cost while reducing the marginal
+success-to-cost ratio. At an interior solution, marginal expected benefit
+equals marginal effort cost.
 
 ## Propositions 1 and 2
 
 **Proposition 1.** Moving from no tool to the tool lowers optimal effort in
-every period, makes effort time-invariant, and raises expected task value:
+every period, makes effort time-invariant, and raises expected task value.
 
-$$
-e_{t}^{*}(1)<e_{t}^{*}(0),\qquad
-e_{t}^{*}(\theta)=e^{*}(\theta),\qquad V_{0}(1)>V_{0}(0).
-$$
-
-**Proposition 2.** If $\Gamma$ denotes the discounted opportunity multiplier,
-the adoption gain is
-
-$$
-V_{0}(1)-V_{0}(0)=\Gamma[M(e^{*}(1);1)-M(e^{*}(0);0)]>0.
-$$
+**Proposition 2.** The adoption gain is the per-opportunity productivity gain
+multiplied by the discounted number and timing of future opportunities.
 
 Opportunity judgment scales the gain. Payoff judgment complements adoption
 only when realized success is weakly higher with the tool. The paper argues
 that implementation skill reduces adoption value under tool-skill
-substitutability; [`extensions.md`](extensions.md) records two caveats to the
-general statement.
+substitutability; the [technical extension](extensions/extensions.pdf) records
+two caveats to the general statement.
 
 ## Proposition 3: the conditional U-shape
 
-The inequality result specializes the model to
-$p(se;\theta)=\sqrt{se+\theta}$, $c(e)=e$, and
-$\Gamma=\gamma_{0}/(1-\delta\gamma)$. It treats $\theta\geq 0$ as continuous and
-assumes $\delta\gamma<1$. The heterogeneous variables
-$\alpha,\gamma_{0},\gamma,s$ are mutually independent, have positive support,
-and satisfy the paper's moment restriction $\mu_{i}>3\sigma_{i}$.
+The inequality result uses a square-root success technology, linear effort
+cost, and a geometric opportunity process. Tool quality is continuous and
+non-negative, and discounted opportunity persistence must be below one. Payoff
+judgment, initial opportunity judgment, subsequent opportunity judgment, and
+implementation skill must be mutually independent, have positive support, and
+have means greater than three standard deviations.
 
-Within the range in which every worker has positive interior effort,
-
-$$
-V(\theta)=\Gamma(\alpha^{2}\Delta^{2}s/4+\theta/s),
-\qquad \theta<\alpha^{2}\Delta^{2}s^{2}/4.
-$$
-
-The U-shape is in the **cross-sectional variance of continuation value
-$V(\theta)$**, interpreted as wages, **with respect to tool quality $\theta$**.
-It requires
-
-$$
-E[\Gamma^{2}]/E[\Gamma]^{2}<\mu_{s}E[1/s].
-$$
-
-It also requires positive cross-sectional variance in $\Gamma/s$.
+The U-shape is in the **cross-sectional variance of total continuation value**,
+interpreted as wages, **with respect to continuous tool quality**. It applies
+only over a common range in which every worker chooses positive interior
+effort. It also requires the paper's condition (30)—opportunity heterogeneity
+must be small relative to inverse-skill heterogeneity—and positive variation
+in the opportunity multiplier divided by skill.
 
 Under these conditions the variance slope is linear, initially negative, and
-crosses zero once at $\theta^{*}>0$. The paper's stronger displayed claim that
-the slope is already positive at $\theta=1$ additionally requires
-$\theta^{*}<1$.
+crosses zero once at a positive turning point. The paper's stronger displayed
+claim that the slope is already positive when tool quality equals one needs the
+additional condition that the turning point lies below one.
 
 The variance of the **individual adoption benefit** is a different object. For
-worker $i$, the gain is $D_{i}(\theta)=V_{i}(\theta)-V_{i}(0)=\theta\Gamma_{i}/s_{i}$.
-Its cross-sectional variance is $\theta^{2}$ times the variance of $\Gamma/s$,
-so it increases monotonically for $\theta>0$ whenever $\Gamma/s$ is heterogeneous.
+each worker, the gain equals tool quality times the opportunity multiplier
+divided by skill. Its cross-sectional variance rises with the square of tool
+quality, so it increases monotonically whenever that ratio is heterogeneous.
 
 *Intuition:* inverse skill bias initially compresses wage dispersion because
-the tool boost is $\theta/s$, but heterogeneous opportunity judgment can
-eventually amplify those gains enough to widen dispersion again.
+the tool boost is larger for lower-skill workers, but heterogeneous opportunity
+judgment can eventually amplify those gains enough to widen dispersion again.
 
 ## Repository structure
 
@@ -141,21 +110,21 @@ eventually amplify those gains enough to widen dispersion again.
 │   ├── figures/                # Reproducible variance comparison
 │   ├── presentation-long.tex   # 26-frame technical deck
 │   └── presentation-long.pdf
-├── hand/README.md              # Where to add the handwritten audit photo
 ├── paper/
-│   ├── README.md               # Citation and official links
 │   └── THE ECONOMICS OF BICYCLES FOR THE MIND.pdf
 │                               # Source paper included in the repository
+├── extensions/
+│   ├── extensions.tex          # Full derivations and audit
+│   └── extensions.pdf
 ├── presentation.tex            # Three-frame oral-exam deck
 ├── presentation.pdf
-├── extensions.md               # Algebra, slips, counterexample, limiting cases
 ├── prompts.md                  # Shared-chat link and this task transcript
 ├── sim.py                      # Deterministic SymPy and exact-moment checks
 └── requirements.txt
 ```
 
-The required handwritten derivation must be the student's own work; see
-[`hand/README.md`](hand/README.md) before adding the photograph.
+The student must add their own handwritten derivation photograph before
+submission.
 
 ## Reproduce the audit
 
@@ -164,6 +133,7 @@ python3 -m pip install -r requirements.txt
 python3 sim.py
 lualatex presentation.tex
 cd extra && lualatex presentation-long.tex
+cd ../extensions && lualatex extensions.tex
 ```
 
 ## Citation
