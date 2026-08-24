@@ -7,6 +7,7 @@
   <a href="https://doi.org/10.3386/w34034"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.3386%2Fw34034-982A34?style=for-the-badge"></a>
   <a href="presentation.pdf"><img alt="Short deck" src="https://img.shields.io/badge/5--Frame%20Deck-PDF-982A34?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
   <a href="extra/presentation-long.pdf"><img alt="Extended deck" src="https://img.shields.io/badge/26--Frame%20Deck-PDF-0C2852?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
+  <a href="extensions/extensions.pdf"><img alt="Technical extensions" src="https://img.shields.io/badge/Technical%20Extensions-PDF-3B5526?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
 </p>
 
 <p align="center">
@@ -26,11 +27,25 @@
 
 ## Presentations
 
-> ### [▶ Open the short presentation — 5-frame PDF](presentation.pdf)
-
-> ### [▶ Open the extended presentation — 26-frame PDF](extra/presentation-long.pdf)
-
-> ### [▶ Open the technical extensions — PDF](extensions/extensions.pdf)
+<table>
+  <tr>
+    <td width="33%" align="center">
+      <strong>Short presentation</strong><br>
+      <sub>5 frames · main argument, variance audit, and hand check</sub><br><br>
+      <a href="presentation.pdf"><img alt="Open short presentation" src="https://img.shields.io/badge/Open-PDF-982A34?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
+    </td>
+    <td width="34%" align="center">
+      <strong>Extended presentation</strong><br>
+      <sub>26 frames · complete theoretical development</sub><br><br>
+      <a href="extra/presentation-long.pdf"><img alt="Open extended presentation" src="https://img.shields.io/badge/Open-PDF-0C2852?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
+    </td>
+    <td width="33%" align="center">
+      <strong>Technical extensions</strong><br>
+      <sub>Full derivations, qualifications, and robustness checks</sub><br><br>
+      <a href="extensions/extensions.pdf"><img alt="Open technical extensions" src="https://img.shields.io/badge/Open-PDF-3B5526?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
+    </td>
+  </tr>
+</table>
 
 This repository studies Ajay Agrawal, Joshua Gans, and Avi Goldfarb's *The
 Economics of Bicycles for the Mind* (2025).
