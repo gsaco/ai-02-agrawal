@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://www.nber.org/papers/w34034"><img alt="NBER paper" src="https://img.shields.io/badge/Paper-NBER%20WP%2034034-0C2852?style=for-the-badge"></a>
   <a href="https://doi.org/10.3386/w34034"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.3386%2Fw34034-982A34?style=for-the-badge"></a>
-  <a href="presentation.pdf"><img alt="Short deck" src="https://img.shields.io/badge/3--Frame%20Deck-PDF-982A34?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
+  <a href="presentation.pdf"><img alt="Short deck" src="https://img.shields.io/badge/5--Frame%20Deck-PDF-982A34?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
   <a href="extra/presentation-long.pdf"><img alt="Extended deck" src="https://img.shields.io/badge/26--Frame%20Deck-PDF-0C2852?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"></a>
 </p>
 
@@ -26,7 +26,7 @@
 
 ## Presentations
 
-> ### [▶ Open the short presentation — 3-frame PDF](presentation.pdf)
+> ### [▶ Open the short presentation — 5-frame PDF](presentation.pdf)
 
 > ### [▶ Open the extended presentation — 26-frame PDF](extra/presentation-long.pdf)
 
@@ -128,7 +128,7 @@ The photo shows my handwritten envelope-theorem derivation separating the direct
 │   └── extensions.pdf
 ├── hand/
 │   └── envelope-theorem-derivation.png
-├── presentation.tex            # Three-frame oral-exam deck
+├── presentation.tex            # Five-frame oral-exam deck
 ├── presentation.pdf
 ├── prompts.md                  # Shared-chat link and this task transcript
 ├── sim.py                      # Deterministic SymPy and exact-moment checks

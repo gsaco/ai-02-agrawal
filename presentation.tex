@@ -3,11 +3,11 @@
 \providecommand\IfDocumentMetadataTF[2]{#2}
 \documentclass[aspectratio=169,9pt]{beamer}
 \input{assets/agrawal-beamer.sty}
-\setbeamersize{text margin left=0.55cm,text margin right=0.55cm}
+\setbeamersize{text margin left=0.40cm,text margin right=0.40cm}
 
 \begin{document}
 
-% 1/3 — title
+% 1/5 — title
 \begin{frame}[plain]
   \agtitlepage
     {Cognitive tools, human judgment, and inequality}
@@ -16,7 +16,7 @@
 \end{frame}
 \agrestorefootline
 
-% 2/3 — paper and problem
+% 2/5 — paper and problem
 \begin{frame}[t]{The paper and the agent's problem}
   \vspace{0.44cm}
 
@@ -53,11 +53,11 @@
   }
 \end{frame}
 
-% 3/3 — corrected exact result
+% 3/5 — corrected exact result
 \begin{frame}[t]{Proposition 3: the conditional variance result}
   \setlength{\abovedisplayskip}{0.32em}
   \setlength{\belowdisplayskip}{0.32em}
-  \vspace{0.10cm}
+  \vspace{0.06cm}
 
   \agshortcompactblueblock{Specialization and conditions}{%
     \small
@@ -73,7 +73,7 @@
     $\theta<\alpha^2\Delta^2s^2/4$ for every worker under comparison.
   }
 
-  \vspace{0.18cm}
+  \vspace{0.15cm}
 
   \agshortcompactredblock{Corrected exact statement}{%
     \small
@@ -98,7 +98,7 @@
     }
   }
 
-  \vspace{0.18cm}
+  \vspace{0.15cm}
 
   \agshortcompactblueblock{Endpoint correction and intuition}{%
     \small
@@ -106,6 +106,132 @@
     \alert{$\theta^*<1$}. \textbf{Intuition:} inverse skill bias equalizes first;
     heterogeneous opportunity judgment can dominate later.
   }
+\end{frame}
+
+% 4/5 — theoretical interpretation and repository audit
+\begin{frame}[t]{What I did: interpreting the U-shape}
+  \setlength{\abovedisplayskip}{0.24em}
+  \setlength{\belowdisplayskip}{0.24em}
+  \vspace{0.10cm}
+
+  \agshortcompactredblock{1. The U-shape is in what, and with respect to what?}{%
+    \small
+    \textbf{Object:} $\Var_i[V_i(\theta)]$, the cross-sectional variance across
+    workers of total continuation value. \textbf{Axis:} tool quality $\theta$.
+    \textbf{Domain:} the common-interior range---not time-series or
+    simulation-draw variance.
+  }
+
+  \vspace{0.14cm}
+
+  \agshortcompactblueblock{2. Conditional total variance; monotone benefit variance}{%
+    \small
+    \agshorttwocol{.445}{%
+      \textbf{Continuation-value variance.}
+      \[
+        \frac{d\Var_i[V_i(\theta)]}{d\theta}
+        =a_0+2\theta\Var_i(\Gamma_i/s_i).
+      \]
+      Condition (30) gives $a_0<0$; heterogeneity in $\Gamma_i/s_i$ gives
+      positive curvature. An upturn by $\theta=1$ additionally requires
+      \alert{$\theta^*<1$}.
+    }{.445}{%
+      \textbf{Variance of the individual benefit.}
+      \[
+        B_i(\theta)=V_i(\theta)-V_i(0)=\theta\Gamma_i/s_i,
+      \]
+      \[
+        \Var_i[B_i(\theta)]
+        =\theta^2\Var_i(\Gamma_i/s_i).
+      \]
+      This variance rises monotonically for $\theta\ge0$; it is not U-shaped.
+    }
+  }
+
+  \vspace{0.14cm}
+
+  \agshortcompactredblock{3. What I explored, what came out, and the dead ends}{%
+    \small
+    \agshorttwocol{.445}{%
+      \textbf{Assumptions.} I questioned the endpoint claim, continuous versus
+      binary $\theta$, common interior, a probability cap, and a general
+      opportunity path; I kept independence and positive support.
+    }{.445}{%
+      \textbf{Evidence.} \texttt{sim.py} used SymPy and exact moments---not
+      Monte Carlo. Condition (30) holds, yet $\theta^*=1.7007$, the slope at
+      one is $-0.0051$, and the interior limit is $2.25$. Lean confirms that
+      the missing endpoint condition is $\theta^*<1$.
+    }
+
+    \vspace{0.04cm}
+    \textbf{Dead ends.} Beyond the common interior, zero-effort corners make the
+    formula piecewise; a probability cap or a general opportunity path changes
+    the model. I therefore do not claim the same global U-shape.
+  }
+\end{frame}
+
+% 5/5 — photographed manual verification of the AI answer
+\begin{frame}[t]{\hspace{0.45cm}Hand check: where I questioned the AI}
+  \setlength{\abovedisplayskip}{0.22em}
+  \setlength{\belowdisplayskip}{0.22em}
+  \vspace{0.08cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.472\textwidth}
+      \centering
+      \setlength{\fboxsep}{0pt}%
+      \fcolorbox{AgDivider}{white}{%
+        \rotatebox{90}{%
+          \includegraphics[height=6.70cm]{hand/envelope-theorem-derivation.png}%
+        }%
+      }
+
+      \vspace{0.08cm}
+      {\footnotesize\color{AgMuted}\textbf{My handwritten check:}
+      direct effect $+$ indirect effort response.\par}
+    \end{column}
+    \begin{column}{0.508\textwidth}
+      \agshortcompactredblock{What the AI answered}{%
+        \small
+        \centering
+        \(\displaystyle
+          \frac{\partial[V_0(1)-V_0(0)]}{\partial\alpha}
+          =\Gamma\Delta\bigl(p_1^*-p_0^*\bigr)
+        \)\par
+        {\footnotesize where $p_\theta^*=p(se^*(\theta);\theta)$.\par}
+      }
+
+      \vspace{0.09cm}
+
+      \agshortcompactblueblock{What I verified by hand}{%
+        \small
+        For $M=p(se;\theta)\alpha\Delta-c(e;\theta)$ and an interior optimum,
+        the FOC kills the indirect effort response:
+        \vspace{0.03cm}
+        \[
+          \begin{aligned}
+            \frac{dM^*}{d\alpha}
+            &=\frac{\partial M}{\partial\alpha}
+              +\frac{\partial M}{\partial e}
+               \frac{\partial e^*}{\partial\alpha} \\
+            &=p(se^*;\theta)\Delta.
+          \end{aligned}
+        \]
+      }
+
+      \vspace{0.09cm}
+
+      \agshortcompactredblock{Verdict: \alert{correct} under interior differentiability}{%
+        \small
+        \textbf{Correct.} At $\theta=1$ and $\theta=0$, subtract and multiply by
+        $\Gamma$: this is exactly the AI identity.
+
+        \textbf{But only this.} It gives no sign for $p_1^*-p_0^*$ and therefore
+        no global complementarity, adoption, or inequality result. At $e^*=0$
+        the photographed FOC proof does not apply.
+      }
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \end{document}
