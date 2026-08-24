@@ -14,6 +14,7 @@
   <a href="presentation.pdf"><img alt="Short presentation PDF" src="https://img.shields.io/badge/Short%20Presentation-PDF-982A34?style=flat-square&logo=adobeacrobatreader&logoColor=white"></a>
   <a href="extra/presentation-long.pdf"><img alt="Extended presentation PDF" src="https://img.shields.io/badge/Extended%20Presentation-PDF-0C2852?style=flat-square&logo=adobeacrobatreader&logoColor=white"></a>
   <a href="sim.py"><img alt="SymPy audit" src="https://img.shields.io/badge/Audit-SymPy-3B5526?style=flat-square&logo=sympy&logoColor=white"></a>
+  <a href="lean/README.md"><img alt="Lean audit" src="https://img.shields.io/badge/Audit-Lean%204-6B4FBB?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-4B5563?style=flat-square"></a>
 </p>
 
@@ -22,6 +23,8 @@
   <img alt="Beamer" src="https://img.shields.io/badge/Beamer-0C2852?style=flat-square">
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
   <img alt="SymPy" src="https://img.shields.io/badge/SymPy-3B5526?style=flat-square&logo=sympy&logoColor=white">
+  <img alt="Lean 4" src="https://img.shields.io/badge/Lean%204-6B4FBB?style=flat-square">
+  <img alt="Mathlib" src="https://img.shields.io/badge/Mathlib-4B5563?style=flat-square">
   <img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white">
 </p>
 
@@ -118,12 +121,22 @@ quality, so it increases monotonically whenever that ratio is heterogeneous.
 the tool boost is larger for lower-skill workers, but heterogeneous opportunity
 judgment can eventually amplify those gains enough to widen dispersion again.
 
+## Machine-checked audit
+
+The [`lean/`](lean/) appendix verifies the specialized interior optimizer,
+first-order condition, global uniqueness, variance derivative, condition (30),
+turning point, conditional U-shape, endpoint correction, and monotonic
+individual-benefit variance in Lean 4. The proof project uses exact real
+arithmetic and rejects unfinished proofs. It complements `sim.py`: Lean checks
+the general algebraic implications, while Python retains the
+distribution-specific numerical counterexample and figures.
+
 ## Handwritten derivation
 
 The photo shows my handwritten envelope-theorem derivation separating the direct and indirect effects and using the effort first-order condition, as in Proposition 2.
 
 <p align="center">
-  <a href="hand/envelope-theorem-derivation.png"><img src="hand/envelope-theorem-derivation.png" alt="Handwritten envelope-theorem derivation" width="760"></a>
+  <a href="hand/envelope-theorem-derivation-upright.png"><img src="hand/envelope-theorem-derivation-upright.png" alt="Upright handwritten envelope-theorem derivation" width="900"></a>
 </p>
 
 ## Repository structure
@@ -142,7 +155,17 @@ The photo shows my handwritten envelope-theorem derivation separating the direct
 │   ├── extensions.tex          # Full derivations and audit
 │   └── extensions.pdf
 ├── hand/
-│   └── envelope-theorem-derivation.png
+│   ├── envelope-theorem-derivation.png          # Original photograph
+│   └── envelope-theorem-derivation-upright.png  # Upright README copy
+├── lean/                       # Lean 4 and Mathlib proof audit
+│   ├── Agrawal/
+│   │   ├── Optimization.lean  # Interior optimizer and probability clash
+│   │   └── Variance.lean      # U-shape and endpoint correction
+│   ├── Agrawal.lean           # Imports the complete formal appendix
+│   ├── README.md               # Proof map and formalization boundary
+│   ├── lake-manifest.json      # Locked dependency graph
+│   ├── lakefile.toml
+│   └── lean-toolchain
 ├── presentation.tex            # Five-frame oral-exam deck
 ├── presentation.pdf
 ├── prompts.md                  # Shared-chat link and this task transcript
@@ -155,6 +178,7 @@ The photo shows my handwritten envelope-theorem derivation separating the direct
 ```bash
 python3 -m pip install -r requirements.txt
 python3 sim.py
+cd lean && lake exe cache get && lake build --wfail && cd ..
 lualatex presentation.tex
 cd extra && lualatex presentation-long.tex
 cd ../extensions && lualatex extensions.tex

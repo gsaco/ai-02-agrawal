@@ -17,3 +17,6 @@ build/
 __pycache__/
 *.pyc
 .venv/
+
+# Lean build products (the dependency lockfile remains tracked)
+lean/.lake/
